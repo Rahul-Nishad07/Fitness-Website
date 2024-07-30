@@ -47,7 +47,7 @@ const Register = () => {
           let res = response.data.result.rData.rMessage;
           console.log(response.data, 'api response'); // handle response
         
-           if(res=="Registration Successful"){
+           if(res=="Registration Successfulll"){
 
             alert(res);
             navigate('/login')
@@ -85,13 +85,10 @@ const Register = () => {
         <h2>REGISTER</h2>
         <div className="form-group1">
           <label htmlFor="username">Username</label>
-          <input
+          <input className='classforresponsive'
             type="text"
             id="username"
-            // value={username}
-            // onChange={(e) => setUsername(e.target.value)}
             value={formData.username} onChange={(e)=>setFormData({...formData,username:e.target.value})}
-          
             required
           />
 
@@ -99,6 +96,7 @@ const Register = () => {
         <div className="form-group1">
           <label htmlFor="contact">Contact Number</label>
           <input
+            className='classforresponsive'
             type="text"
             id="contact"
             value={formData.contact} onChange={(e)=>setFormData({...formData,contact:e.target.value})}
@@ -123,7 +121,7 @@ const Register = () => {
             required
           />
         </div>
-        <button type="submit">Register</button>
+        <button id="buttonregister"  type="submit">Register</button>
         <div className='alreadyaccount'>
       <h5>If You have Already Account</h5>
       <Link to="/login"><h5 id="log">Login</h5></Link>

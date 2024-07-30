@@ -114,57 +114,7 @@ const handleSubmit = async (e) => {
               </ul>
             </div>
           </div>
-          {/* <div class="related-popular-class">
-						<h3 class="main-title">Releted Classes</h3>
-						<div class="owl-carousel owl-theme">
-							<div class="item">
-								<div class="single-popular-post">
-									<div class="img-box">
-										<img src="img/popular-class/1.jpg" alt="Awesome Image"/>
-										<div class="overlay">
-											<div class="box">
-												<div class="bottom">
-													<h3>Duration - 50 Minutes</h3>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="title-box clearfix">
-										<div class="title pull-left">
-											<h3>BodyBuildin Program</h3>
-											<p>Coach Shame Doe</p>
-										</div>
-										<div class="more-box pull-right">
-											<a href="#">+</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="single-popular-post">
-									<div class="img-box">
-										<img src="img/popular-class/2.jpg" alt="Awesome Image"/>
-										<div class="overlay">
-											<div class="box">
-												<div class="bottom">
-													<h3>Duration - 50 Minutes</h3>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="title-box clearfix">
-										<div class="title pull-left">
-											<h3>BodyBuildin Program</h3>
-											<p>Coach Shame Doe</p>
-										</div>
-										<div class="more-box pull-right">
-											<a href="#">+</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>					 */}
+     
         </div>
         <div className="col-md-4">
           <div className="single-sidebar-wrapper">

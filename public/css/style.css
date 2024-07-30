@@ -438,7 +438,7 @@ h6 {
   height: 35px;
   font-size: 16px;
   line-height: 33px;
-  border: 1px solid #F9F9F9;
+  /* border: 1px solid #F9F9F9; */
   background: none;
   outline: none;
   color: #fff;
@@ -3288,7 +3288,6 @@ h6 {
 
 /* ///////////////////////payment */
 
-
 .week{
    text-align: center;
    font-size: 12px;
@@ -3359,3 +3358,22 @@ h1{
 .classforgooglemap iframe{
    overflow: hidden;
 }
+
+
+.login-container4{
+   height: 100vh;
+   background-color: red;
+   border-radius: 1px solid;
+}
+
+/* headerpoirthrti--------------------------------------------- */
+.searchbarheader{
+  height: 40px;
+}
+
+#idforsearchbar{
+   height: 40px;
+   padding: 10px;
+}
+
+

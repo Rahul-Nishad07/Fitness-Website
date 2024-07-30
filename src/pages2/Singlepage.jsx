@@ -11,9 +11,7 @@ const Singlepage = () => {
   const [duration, setContact] = useState('');
   const [trainer, setTrainer] = useState('');
   const [description, setDescription] = useState('');
-  const [deschead, setDeschead] = useState('');
   const [description2, setDescription2] = useState('');
-  const [workbenifits, setWorkbenifits] = useState('');
   const [heading1, setHeading1] = useState('');
   const [heading2, setHeading2] = useState('');
   const [heading3, setHeading3] = useState('');
@@ -24,12 +22,11 @@ const Singlepage = () => {
   
     image: '',
     name: '',
+    imagename: '',
     duration: '',
     trainer: '',
     description:'',
-    deschead: '',
     description2: '',
-    workbenifits: '',
     heading1: '',
     heading2:'',
     heading3:'',
@@ -60,12 +57,11 @@ const handleSubmit = async (e) => {
          
           image: formData.image,
           name: formData.name,
+          imagename: formData.imagename,
           duration: formData.duration,
           trainer: formData.trainer,
           description: formData.description,
-          deschead: formData.deschead,
           description2: formData.description2,
-          workbenifits: formData.workbenifits,
           heading1: formData.heading1,
           heading2:formData.heading2,
           heading3:formData.heading3,
@@ -76,7 +72,7 @@ const handleSubmit = async (e) => {
         }
     };
     try {
-        const response = await axios.post('http://localhost:5164/Singleclass', payload);
+        const response = await axios.post('http://localhost:5164/singleclass', payload);
         let res = response.data.result.rData.rMessage;
         console.log(response.data, 'api response'); // handle response
         // setShowPopup(true);
@@ -108,7 +104,7 @@ const handleSubmit = async (e) => {
       <li><Link to="/admin"><i className="zmdi zmdi-view-dashboard" /> PROFILE</Link></li>
           <li><Link to="/usersdetails"><i className="zmdi zmdi-link" /> USERS DETAILS</Link></li>
           <li><Link to="/request"><i className="zmdi zmdi-calendar" /> REQUESTS </Link></li>
-          <li><Link to="/information"><i className="zmdi zmdi-info-outline" /> INFORMATIONS</Link></li>
+          {/* <li><Link to="/information"><i className="zmdi zmdi-info-outline" /> INFORMATIONS</Link></li> */}
           <li><Link to="/subscribers"><i className="zmdi zmdi-settings" /> SUBSCRIBERS</Link></li>
           <li><Link to="/classesform"><i className="zmdi zmdi-settings" /> CLASSES FORM</Link></li>
           <li><Link to="/classesdetails"><i className="zmdi zmdi-widgets" /> CLASSES DETAILS</Link></li>
@@ -120,7 +116,7 @@ const handleSubmit = async (e) => {
           <li><Link to="/packagedetails"><i className="zmdi zmdi-settings" />PACKAGE DETAILS</Link></li>
           <li><Link to="/singlepage"><i className="zmdi zmdi-settings" />SINGLE PAGE</Link></li>
           <li><Link to="/singlepagedetails"><i className="zmdi zmdi-settings" />SINGLE PAGE DETAILS</Link></li>
-        
+          <li><Link to="/paymentdetails"><i className="zmdi zmdi-settings" />PAYMENT DETAILS</Link></li>
           
           <li>
             <Link  to='/adminlogin' onClick={() => {
@@ -151,7 +147,7 @@ const handleSubmit = async (e) => {
         <div className="form-group">
           <label htmlFor="image">Image URL:</label>
           <input type="file" id="image" name="image" onChange={handleImageChange} />
-          {formData.image && <img src={formData.image} alt="Selected" />}
+          {/* {formData.image && <img src={formData.image} alt="Selected" />} */}
           {/* value={formData.username} onChange={(e)=>setFormData({...formData,username:e.target.value})} */}
         </div>
         <div className="form-group">
@@ -171,16 +167,8 @@ const handleSubmit = async (e) => {
           <textarea id="description" name="description" value={formData.description} onChange={(e)=>setFormData({...formData,description:e.target.value})}></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="name">Dess. Head</label>
-          <input type="text" id="deschead" name="deschead" value={formData.deschead} onChange={(e)=>setFormData({...formData,deschead:e.target.value})} />
-        </div>
-        <div className="form-group">
           <label htmlFor="description">Description-2:</label>
           <textarea id="description2" name="description2" value={formData.description2} onChange={(e)=>setFormData({...formData,description2:e.target.value})}></textarea>
-        </div>
-        <div className="form-group">
-          <label htmlFor="name">Work and Benifits</label>
-          <input type="text" id="workbenifits" name="workbenifits" value={formData.workbenifits} onChange={(e)=>setFormData({...formData,workbenifits:e.target.value})} />
         </div>
         <div className="form-group">
           <label htmlFor="name">Heading-1</label>

@@ -1,178 +1,144 @@
-/* Base styles */
-body {
-    font-family: Arial, sans-serif;
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
+  
 
-.upi {
-    margin-right: 10px;
-}
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
 
-.mastercard {
-    margin-top: 40px;
-}
+    border-radius: 8px;
+  }
+  
 
-.fw-bold {
-    text-align: center;
-}
+  .title {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 900;
+  }
 
-.number {
-    margin-top: -15px;
-    display: flex;
-    justify-content: center;
-}
-
-.row1 {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.fromdiv {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.container2 {
-    display: flex;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1px solid;
-}
-
-.form {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.container1 {
-    width: 100%;
-    padding: 0 40px;
+  .inputBox {
+    margin-bottom: 15px;
     
-}
 
-.div1 {
-    margin-right: 10px;
-    margin-top: -60px;
-}
-
-.sectionform {
-    display: flex;
-    justify-content: center;
-    margin-right: 10px;
-}
-
-.cardsclass {
-    height: 50px;
-    margin: 10px 50px;
-}
-
-.pay {
-    border: 1px solid;
+  }
+  
+  .inputBox label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 200;
+  }
+  
+  .inputBox input,
+  .inputBox select {
     width: 100%;
-    text-align: center;
-    border-radius: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+  
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .flex .inputBox {
+    width: 48%;
+  }
+  
+  
+  .submit_btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #45a049;
     color: white;
-    background-color: rgb(172, 172, 224);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit_btn:hover {
+   
+    background-color: #4c56af;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .flex {
+      flex-direction: column;
+    }
+    
+    .flex .inputBox {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
+
+  .toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.toast-content {
+    display: flex;
     align-items: center;
 }
 
-.payment1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.toast-content img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
-/* Mobile styles */
-@media (max-width: 600px) {
-    .container2 {
+.toast-message {
+    text-align: left;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@media (max-width: 768px) {
+    .row {
         flex-direction: column;
-        padding: 20px;
     }
 
-    .row1, .fromdiv, .form {
-        width: 100%;
-        margin: 0;
+    .col {
+        margin: 0 0 20px 0;
     }
+ }
 
-    .container1 {
-        padding: 0 20px;
-    }
-
-    .sectionform, .payment1 {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cardsclass {
-        margin: 10px 0;
-    }
-}
-
-/* Tablet styles */
-@media (min-width: 601px) and (max-width: 1024px) {
-    .container2 {
-        padding: 30px;
-        flex-direction: row1;
-    }
-
-    .row1, .fromdiv, .form {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .container1 {
-        padding: 0 30px;
-    }
-
-    .sectionform, .payment1 {
-        flex-direction: row1;
-        justify-content: center;
-    }
-
-    .cardsclass {
-        margin: 10px 30px;
-    }
-}
-
-/* Desktop styles */
-@media (min-width: 1025px) {
-    .container2 {
-        padding: 30px;
-        flex-direction: row1;
-    }
-
-    .row1, .fromdiv, .form {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .container1 {
-        padding: 0 40px;
-    }
-
-    .sectionform, .payment1 {
-        flex-direction: row1;
-        justify-content: center;
-    }
-
-    .cardsclass {
-        margin: 10px 50px;
-    }
-}
-
-
-.div1{
-     /* border: 1px solid; */
-     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-     
-}

@@ -46,7 +46,7 @@ const Classes = () => {
   return (
     <>
   <Header />
-<section class="inner-banner">
+  <section class="inner-banner">
 		<div class="container">
 			<div class="title pull-left">
 				<h3>Our CLass</h3>
@@ -85,7 +85,7 @@ const Classes = () => {
               </div>
             </div>
             <p>{value[6]}</p>
-            <li><Link to="/bodybuilding" className="read-more">Read More</Link></li>
+            <li><Link to={value[7]} className="read-more">Read More</Link></li>
             
           </div>
               ))}
@@ -340,3 +340,7 @@ const Classes = () => {
 }
 
 export default Classes;
+
+
+
+

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import '/src/pages/register.css';
@@ -39,10 +39,9 @@ const handleSubmit = async (e) => {
     try {
         const response = await axios.post('http://localhost:5164/loginnew', payload);
         let res = response.data.result.rData.rMessage;
-        console.log(response.data, 'api response'); // handle response
-        // setShowPopup(true);
-         // Show the popup after successful registration
-         if(res=="Login Successful"){
+        console.log(response.data, 'api response'); 
+
+         if(res=="login Successfull"){
 
            alert(res);
            navigate('/');
@@ -54,7 +53,7 @@ const handleSubmit = async (e) => {
         }
     } catch (error) {
         console.error('Error signing up:', error);
-        // Handle error
+
     }
 };
   return (
@@ -65,11 +64,7 @@ const handleSubmit = async (e) => {
       <div className="title pull-left">
         <h3>Login</h3>
       </div>
-      {/* <div className="breadcumb pull-right">
-        <ul>
-          <li><Link to="/">HOME</Link></li>  
-        </ul>
-      </div> */}
+     
     </div>
   </section>
   <div className="login-container1">
@@ -93,12 +88,12 @@ const handleSubmit = async (e) => {
             required
           />
         </div>
-        {/* <button type="submit" onClick={GetLoginDetails }>Login</button> */}
+        <NavLink to='/otp'><div id="forgotpassclass"><h4 id='forgotpass'>Forgot Password</h4></div></NavLink>
+     
+        <button id='buttonforlogin' type="submit">Login</button>
 
-        <button type="submit">Login</button>
-
-        <div className='haveanyaccount'> <h5 >If You Don't Have Any Account</h5>
-        <Link to="/register">Register</Link></div>
+        {/* <div className='haveanyaccount'> <h5 >If You Don't Have Any Account</h5> */}
+        <Link to="/register"> <button id='buttonregister'>Register</button></Link>
        
       </form>
     </div>

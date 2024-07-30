@@ -51,8 +51,8 @@ const About = () => {
       <div className="breadcumb pull-right">
         <ul>
        
-          <li><Link className='linktag' to="/about">About Us</Link></li> 
-          <li><Link className='linktag' to="/adminlogin">Admin</Link></li>
+          <li><Link className='linktag' to="/about">ABOUT US</Link></li> 
+          <li><Link className='linktag' to="/adminlogin">ADMIN</Link></li>
         </ul>
       </div>
     </div>

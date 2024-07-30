@@ -171,6 +171,21 @@ useEffect(() => {
 }, []);
 
 
+const [searchQuery, setSearchQuery] = useState('');
+
+const handleSearchInputChange = (event) => {
+  setSearchQuery(event.target.value);
+};
+
+const handleSearchSubmit = (event) => {
+  event.preventDefault();
+  // Perform search logic here, such as navigating to a search results page
+  console.log('Performing search with query:', searchQuery);
+  // Clear the search input
+  setSearchQuery('');
+};
+
+
   return (
 <>
   <div>
@@ -213,9 +228,20 @@ useEffect(() => {
               <li>
               <Link to="/login" ><h1 className='buttonforlogin'>LOGIN</h1></Link>
               </li>
+              <li className="dropdown">
+                <form className='searchbarheader' onSubmit={handleSearchSubmit}>
+                <input id='idforsearchbar'
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={handleSearchInputChange}
+                />
+                {/* <button type="submit"><i className="fa fa-search" /></button> */}
+              </form>
+              </li>
             </ul>
           </div>
-          <div className="nav-footer">
+          {/* <div className="nav-footer">
             <ul>
               <li>
                 <button><i className="fa fa-search" /></button>
@@ -230,7 +256,7 @@ useEffect(() => {
               </li>
               <li><button className="menu-expander"><i className="fa fa-list-ul" /></button></li>
             </ul>
-          </div>
+          </div> */}
         </nav>
       </div>
     </div>
@@ -354,7 +380,7 @@ useEffect(() => {
               </div>
             </div>
             <p>{value[6]}</p>
-            <li><Link to="/bodybuilding" className="read-more">Read More</Link></li>
+            <li><Link to={value[7]} className="read-more">Read More</Link></li>
             
           </div>
               ))}

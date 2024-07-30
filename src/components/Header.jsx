@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
-
 const Header = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    // Perform search logic here, such as navigating to a search results page
+    console.log('Performing search with query:', searchQuery);
+    // Clear the search input
+    setSearchQuery('');
+  };
+
   return (
     <header className="header stricky">
       <div className="container">
@@ -15,7 +27,7 @@ const Header = () => {
         <div className="header-right pull-right">
           <nav className="mainmenu-holder">
             <div className="nav-header">
-              <ul className="navigation">
+              <ul className="">
                 <li className="dropdown">
                   <Link to="/">Home</Link>
                   <ul className="submenu"></ul>
@@ -34,24 +46,21 @@ const Header = () => {
                   </ul>
                 </li>
                 <li><Link to="/contact">Contact</Link></li>
+                <li className="dropdown">
+                <form className='searchbarheader' onSubmit={handleSearchSubmit}>
+                <input id='idforsearchbar'
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={handleSearchInputChange}
+                  
+                />
+                {/* <button type="submit"><i className="fa fa-search" /></button> */}
+              </form>
+              </li>
               </ul>
             </div>
-            <div className="nav-footer">
-              <ul>
-                <li>
-                  <button><i className="fa fa-search" /></button>
-                  <ul className="search-box">
-                    <li>
-                      <form action="#">
-                        <input type="text" placeholder="Search for something..." />
-                        <button type="submit"><i className="fa fa-search" /></button>
-                      </form>
-                    </li>
-                  </ul>
-                </li>
-                <li><button className="menu-expander"><i className="fa fa-list-ul" /></button></li>
-              </ul>
-            </div>
+           
           </nav>
         </div>
       </div>

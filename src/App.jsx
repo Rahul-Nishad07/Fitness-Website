@@ -40,6 +40,11 @@ import Edit_trainer from './pages2/Edit_trainer'
 import Edit_workout from './pages2/Edit_workout'
 import Edit_singleclass from './pages2/Edit_singleclass'
 import Informations from './pages/Informations'
+import Otp from './pages/Otp'
+import ForgotPassword from './pages/ForgotPassword'
+import Paymentdetails from './pages2/Paymentdetails'
+import Demopage from './pages/Demopage'
+
 
 function App() {
  
@@ -89,14 +94,11 @@ function App() {
           <Route path='/edit_workout'  element={<Edit_workout />}/>
           <Route path='/edit_singleclass'  element={<Edit_singleclass />}/>
           <Route path='/informations'  element={<Informations />}/>
-          {/* <Route path='/informations'  element={<Informations />}/> */}
-         
-
+          <Route path='/otp'  element={<Otp />}/>
+          <Route path='/forgotpassword'  element={<ForgotPassword />}/>
+          <Route path='/paymentdetails'  element={<Paymentdetails />}/>
+          <Route path='/demopage:id'  element={<Demopage />}/>
           
- 
-       
-       
-
         </Routes>
            
        </div>

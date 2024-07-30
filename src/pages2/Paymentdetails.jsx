@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '/src/pages/admin.css'
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { Table, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { Table,Button } from 'react-bootstrap'
 
 
-const URL_api = "http://localhost:5164/getalluser"
-const DELETE_API = "http://localhost:5164/delete_users"
-const UsersDetails = () => {
+const URL_api ="http://localhost:5164/getallpayment";
+
+const Paymentdetails = () => {
 
   const [contact, setContact] = useState([]); // State variable to store jobs
   const [res, setRes] = useState([]); // State variable to store the value of res
@@ -33,41 +34,24 @@ const UsersDetails = () => {
         console.error('Error fetching data:', error);
         console.log("Catch Block For Rahul ");
       });
-
   }
+
 
   useEffect(() => {
     getData();
   }, []);
 
-
-  const handleDelete = async (id) => {
-    try {
-      const payload = {
-        eventID: "1001",
-        addInfo: {
-          id: id
-        }
-      };
-      const response = await axios.post(DELETE_API, payload);
-      console.log(response.data); // Handle response as needed
-      getData(); // Refresh data after deletion
-    } catch (error) {
-      console.error('Error deleting item:', error);
-    }
-  };
-
-
+    
   return (
     <div id="viewport">
-      {/* Sidebar */}
-      <div id="sidebar">
-        <header>
-          <img src="img/resources/fitlogo.png" alt="Awesome Image" />
-          {/* <a href="#">Fit Bahubali</a> */}
-        </header>
-        <ul className="nav">
-        <li><Link to="/admin"><i className="zmdi zmdi-view-dashboard" /> PROFILE</Link></li>
+    
+    <div id="sidebar">
+    <header>
+    <img src="img/resources/fitlogo.png" alt="Awesome Image" />
+      
+    </header>
+    <ul className="nav">
+    <li><Link to="/admin"><i className="zmdi zmdi-view-dashboard" /> PROFILE</Link></li>
           <li><Link to="/usersdetails"><i className="zmdi zmdi-link" /> USERS DETAILS</Link></li>
           <li><Link to="/request"><i className="zmdi zmdi-calendar" /> REQUESTS </Link></li>
           {/* <li><Link to="/information"><i className="zmdi zmdi-info-outline" /> INFORMATIONS</Link></li> */}
@@ -83,65 +67,74 @@ const UsersDetails = () => {
           <li><Link to="/singlepage"><i className="zmdi zmdi-settings" />SINGLE PAGE</Link></li>
           <li><Link to="/singlepagedetails"><i className="zmdi zmdi-settings" />SINGLE PAGE DETAILS</Link></li>
           <li><Link to="/paymentdetails"><i className="zmdi zmdi-settings" />PAYMENT DETAILS</Link></li>
-
           <li>
-            <Link to='/adminlogin' onClick={() => {
+            <Link  to='/adminlogin' onClick={() => {
               localStorage.removeItem('token');
               window.location.href = '/adminlogin';
             }}>
               <button className='logoutbutton'>LOGOUT</button>
             </Link>
           </li>
-
+          
 
         </ul>
-      </div>
-      {/* Content */}
-      <div id="content">
+  </div>
+  
+    <div id="content">
         <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            <div className='searchbar'>
-              <h2 className='headingsame'>USERS DETAILS</h2>
-              {/* <input className='searchbar1' placeholder="Search" /> */}
-            </div>
+        <div className="container-fluid">
+              <div className='searchbar'>
+              <h2 className='headingsame'>PAYMENT DETAILS</h2>
+             
+            </div>  
           </div>
         </nav>
         <div className="container-fluid">
           <Table>
 
-            <table className='table table-bordered table-hover table-striped'>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Email</th>
-                  <th>Mobile No</th>
-                  <th>Password</th>
-                  <th>Username</th>
+           <table className='table table-bordered table-hover table-striped'>
+           <thead>
+              <tr>
+              <th>ID</th>
+                 <th>Name</th>
+                 <th>Email</th>
+                 <th>Address</th>
+                 <th>Contact </th>
+                 <th>Card Name</th>
+                 <th>Card Number</th>
+                 <th>Exp Month</th>
+                 <th>Exp Year</th>
+                 <th>cvv</th>
+                
+              </tr>
+            </thead>
 
-                </tr>
-              </thead>
+           
 
-              <tbody>
-                {res.map((item, index) => (
-                  <React.Fragment key={index}>
-                    {item.map((value, idx) => (
-                      <tr style={{ cursor: 'pointer' }} key={idx}>
-                        <td>{value[0]}</td>
-                        <td>{value[1]}</td>
-                        <td>{value[2]}</td>
-                        <td>{value[3]}</td>
-                        <td>{value[4]}</td>
-                        <td>
-                          <Button id="buttonfordelete" variant="danger" onClick={() => handleDelete(value[0])}>Delete</Button>
-                        </td>
-
-
-                      </tr>
-                    ))}
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </table>
+            <tbody>
+              {res.map((item, index) => (
+                <React.Fragment key={index}>
+                  {item.map((value, idx) => (
+                    <tr style={{ cursor: 'pointer' }} key={idx}>
+                      <td>{value[0]}</td>
+                      <td>{value[1]}</td>
+                      <td>{value[2]}</td>
+                      <td>{value[3]}</td>
+                      <td>{value[4]}</td>
+                      <td>{value[5]}</td>
+                      <td>{value[6]}</td>
+                      <td>{value[7].month}</td> 
+                      <td>{value[8].year}</td> 
+                      <td>{value[9]}</td>
+                      
+                      
+                     
+                    </tr>
+                  ))}
+                </React.Fragment>
+              ))}
+            </tbody>
+           </table>
 
           </Table>
         </div>
@@ -150,4 +143,6 @@ const UsersDetails = () => {
   )
 }
 
-export default UsersDetails
+export default Paymentdetails
+
+
